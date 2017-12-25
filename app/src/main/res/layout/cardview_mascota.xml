@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- DEJAMOS LA DECLARACION ANTERIOR COMO ESTÁ Y BORRAMOS EL RESTO DE ETIQUETAS.
+ A CONTINUACIÓN LAS SUSTITUIMOS POR NUESTRO CARDVIEW Y LE PONEMOS DENTRO LOS ELEMENTOS
+ QUE QUERAMOS : -->
+
+<!-- ESTE LAYOUT CONTENDRÁ EL CARDVIEW QUE SE IRÁ RECICLANDO (parece que hay que meter el
+CardView a mano, no me deja agregarlo desde la vista de diseño)-->
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view_mascota"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/cardview_light_background"
+    app:cardElevation="2dp">
+
+    <android.widget.LinearLayout
+        android:id="@+id/linear_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/card_view_foto_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/dog1" />
+
+        <android.widget.RelativeLayout
+            android:id="@+id/relative_layout1_layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/imagebutton_huesoblanco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                app:srcCompat="@drawable/hueso_blanco" />
+
+            <ImageButton
+                android:id="@+id/imagebutton_huesodorado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                app:srcCompat="@drawable/hueso_dorado" />
+
+            <TextView
+                android:id="@+id/card_view_nombre_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/imagebutton_huesoblanco"
+                android:paddingLeft="8dp"
+                android:text="Nombre"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/card_view_id_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:paddingLeft="8dp"
+                android:text="ID mascota" />
+
+            <TextView
+                android:id="@+id/card_view_numlikes_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/imagebutton_huesodorado"
+                android:paddingLeft="8dp"
+                android:text="Num likes"
+                android:textStyle="bold" />
+
+
+
+
+        </android.widget.RelativeLayout>
+
+
+    </android.widget.LinearLayout>
+
+
+</android.support.v7.widget.CardView>
