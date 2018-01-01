@@ -6,32 +6,52 @@
     android:id="@+id/constraint_layout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.fer.pruebarecyclerview2.MainActivity">
+    tools:context="com.fer.PracticaViewpagerTabsyFragments.MainActivity">
 
     <!-- mediante la etiqueta "include" agregamos el layout actionbar.xml definido en dicho archivo
     y que será nuestra appbar. Deberemos añadir este código a todos los layouts que deban llevar
-    dicha toolbar -->
+    dicha toolbar  (la señora ha decidido quitar esto y añadirlo manualmente junto con la appbar)-->
 
-    <include
+    <!--<include
         android:id="@+id/miActionBar"
         layout="@layout/actionbar">
 
-    </include>
+    </include>-->
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:elevation="4dp"
+            app:title="Petagram" />
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!-- debajo de nuestro appbar colocaremos nuestro ViewPager (que será el contenedor donde van a
+    estar viviendo nuestros fragments): -->
 
 
 
-
-    <!-- Agregamos nuestro RecyclerView con el id rvMascotas -->
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvMascotas"
-        android:layout_width="0dp"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_below="@+id/miActionBar"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/miActionBar" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"/>
 
 
 </android.support.constraint.ConstraintLayout>

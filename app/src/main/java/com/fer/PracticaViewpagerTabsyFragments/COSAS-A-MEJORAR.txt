@@ -1,0 +1,8 @@
+Debería implementar algun modo de que las ids no se vean en la vista de perfil de la mascota,
+ya que se solapa con el resto de texto.
+
+
+En PerfilFragment.java seria buena idea cambiar el nombre de los Arralist..etc, ya que aunque
+funcional, no es para nada ilustrativo del contenido real.
+
+Habria que retocar el tema del tamaño de las fotos, posicionamiento de la imagen, aspectratio..etc

@@ -7,15 +7,17 @@ ATRÁS, QUE ESTA DECLARADA EN OTROS LUGARES) -->
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/item_about"
-        android:title="Sobre Petagram"
+        android:id="@+id/item_acerca_de"
+        android:title="Saber más"
         android:orderInCategory="1">
     </item>
     <item
-        android:id="@+id/item_saber_mas"
-        android:title="Saber más"
+        android:id="@+id/item_contacto"
+        android:title="Contacto"
         android:orderInCategory="2">
     </item>
+
+    <!-- Con app:showAsAction="always" le decimos que se muestre como un ActionButton en la barra: -->
 
     <item
         android:id="@+id/item_inicio"
@@ -24,6 +26,7 @@ ATRÁS, QUE ESTA DECLARADA EN OTROS LUGARES) -->
         app:showAsAction="always"
         android:icon="@drawable/inicio">
     </item>
+
     <item
         android:id="@+id/item_estrella"
         android:title="Refresh"

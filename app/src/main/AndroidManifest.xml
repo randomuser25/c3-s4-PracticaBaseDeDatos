@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fer.pruebarecyclerview2">
+    package="com.fer.PracticaViewpagerTabsyFragments">
 
-    <!-- CAMBIAMOS EL LAUNCHMODE DE MAINACTIVITY A SINGLETOP PARA QUE SE CARGUE LA INSTANCIA
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--
+     CAMBIAMOS EL LAUNCHMODE DE MAINACTIVITY A SINGLETOP PARA QUE SE CARGUE LA INSTANCIA
      QUE YA HAY EN MEMORIA Y NO SE REINICIE MAIN ACTIVITY AL HACER BACK AL PARENT DESDE LA TOOLBAR DE LA
-     SEGUNDA ACTIVIDAD-->
-
+     SEGUNDA ACTIVIDAD
+    -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,9 +26,11 @@
             </intent-filter>
         </activity>
 
-        <!-- Ahora indicamos cual es el parent de .Ultimas5Mascotas para la navegación hacia atrás
+        <!--
+         Ahora indicamos cual es el parent de .Ultimas5Mascotas para la navegación hacia atrás
 
-         (Botón "arriba" XD de la toolbar superior):-->
+         (Botón "arriba" XD de la toolbar superior):
+        -->
 
         <activity
             android:name=".Ultimas5Mascotas"
@@ -35,12 +40,10 @@
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity">
-
-            </meta-data>
-
+                android:value="com.fer.PracticaViewpagerTabsyFragments.MainActivity" />
         </activity>
-
+        <activity android:name=".BioDesarrollador" />
+        <activity android:name=".FormularioContacto"></activity>
     </application>
 
 </manifest>
