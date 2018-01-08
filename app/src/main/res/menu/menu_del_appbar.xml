@@ -16,13 +16,18 @@ ATRÁS, QUE ESTA DECLARADA EN OTROS LUGARES) -->
         android:title="Contacto"
         android:orderInCategory="2">
     </item>
+    <item
+        android:id="@+id/item_test_db"
+        android:title="Test DB (beta)"
+        android:orderInCategory="3">
+    </item>
 
     <!-- Con app:showAsAction="always" le decimos que se muestre como un ActionButton en la barra: -->
 
     <item
         android:id="@+id/item_inicio"
         android:title="Refresh"
-        android:orderInCategory="3"
+        android:orderInCategory="4"
         app:showAsAction="always"
         android:icon="@drawable/inicio">
     </item>
@@ -30,7 +35,7 @@ ATRÁS, QUE ESTA DECLARADA EN OTROS LUGARES) -->
     <item
         android:id="@+id/item_estrella"
         android:title="Refresh"
-        android:orderInCategory="4"
+        android:orderInCategory="5"
         app:showAsAction="always"
         android:icon="@drawable/estrella">
     </item>

@@ -1,11 +1,8 @@
-package com.fer.PracticaViewpagerTabsyFragments;
+package com.fer.PracticaBaseDeDatos;
 
 //RECURSO UTILIZADO PARA ESTA PRÁCTICA:
 //https://www.simplifiedcoding.net/android-email-app-using-javamail-api-in-android-studio/
 
-import android.content.Intent;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;

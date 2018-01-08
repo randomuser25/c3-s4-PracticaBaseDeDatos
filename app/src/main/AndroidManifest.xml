@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fer.PracticaViewpagerTabsyFragments">
+    package="com.fer.PracticaBaseDeDatos">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <!--
-     CAMBIAMOS EL LAUNCHMODE DE MAINACTIVITY A SINGLETOP PARA QUE SE CARGUE LA INSTANCIA
-     QUE YA HAY EN MEMORIA Y NO SE REINICIE MAIN ACTIVITY AL HACER BACK AL PARENT DESDE LA TOOLBAR DE LA
-     SEGUNDA ACTIVIDAD
+     PONEMOS EL LAUNCHMODE DE NUEVO EN STANDARD
     -->
     <application
         android:allowBackup="true"
@@ -18,7 +16,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:launchMode="singleTop">
+            android:launchMode="standard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,10 +38,11 @@
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.fer.PracticaViewpagerTabsyFragments.MainActivity" />
+                android:value="com.fer.PracticaBaseDeDatos.MainActivity" />
         </activity>
         <activity android:name=".BioDesarrollador" />
-        <activity android:name=".FormularioContacto"></activity>
+        <activity android:name=".FormularioContacto" />
+        <activity android:name=".TestDB"></activity>
     </application>
 
 </manifest>

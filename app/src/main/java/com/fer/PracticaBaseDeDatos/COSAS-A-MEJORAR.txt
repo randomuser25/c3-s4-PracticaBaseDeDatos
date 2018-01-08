@@ -1,3 +1,7 @@
+
+IMPORTANTE: CREAR BASE DE DATOS PARA LAS FOTOS DEL PERFIL DE LA MASCOTA O AL DAR LIKE | HACER BACK SE IRA A TOMAR POR CULO.
+
+
 Debería implementar algun modo de que las ids no se vean en la vista de perfil de la mascota,
 ya que se solapa con el resto de texto.
 

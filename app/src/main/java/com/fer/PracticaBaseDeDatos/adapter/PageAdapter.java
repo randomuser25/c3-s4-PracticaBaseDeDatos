@@ -1,4 +1,4 @@
-package com.fer.PracticaViewpagerTabsyFragments.adapter;
+package com.fer.PracticaBaseDeDatos.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

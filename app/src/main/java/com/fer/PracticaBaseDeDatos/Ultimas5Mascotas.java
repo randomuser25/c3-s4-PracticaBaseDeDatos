@@ -1,17 +1,18 @@
-package com.fer.PracticaViewpagerTabsyFragments;
+package com.fer.PracticaBaseDeDatos;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.fer.PracticaViewpagerTabsyFragments.adapter.MascotaAdaptador;
-import com.fer.PracticaViewpagerTabsyFragments.pojo.Mascota;
+import com.fer.PracticaBaseDeDatos.Db.ConexionSQLiteHelper;
+import com.fer.PracticaBaseDeDatos.Db.ConstantesBaseDatos;
+import com.fer.PracticaBaseDeDatos.adapter.MascotaAdaptador;
+import com.fer.PracticaBaseDeDatos.pojo.Mascota;
 
 import java.util.ArrayList;
 
@@ -42,23 +43,16 @@ public class Ultimas5Mascotas extends AppCompatActivity {
         listaMascotas2.setLayoutManager(llm);
 
 
-        //VAMOS A INICIALIZAR ALGUNAS MASCOTAS "HARDCODEADAS":
+        cargarMascotasEnArrayList();
 
-        misMascotas2 = new ArrayList<Mascota>();
+        /*** SE VA INICIAR EL ADAPTADOR Y DEBERIA MOSTRAR UN MENSAJE ***/
 
-        misMascotas2.add(new Mascota("7","crazy", R.drawable.dog7, "16"));
-        misMascotas2.add(new Mascota("8","pinky", R.drawable.dog8, "12"));
-        misMascotas2.add(new Mascota("3","Tommy", R.drawable.dog3, "8"));
-        misMascotas2.add(new Mascota("4","dozer", R.drawable.dog4, "7"));
-        misMascotas2.add(new Mascota("5","taco", R.drawable.dog5, "2"));
+        Toast.makeText(this,"se va a iniciar el adaptador", Toast.LENGTH_LONG).show();
+
+        inicializarAdaptador();
 
 
-        //################Iniciamos el adaptador (lo suyo seria que fuera dentro de su propia funcion):#######
-        //declaramos e instanciamos nuestro adaptador y le pasamos misMascotas:
-        MascotaAdaptador adaptador2 = new MascotaAdaptador(misMascotas2, this); //y ahora le pasamos tb el activity, para el tema del click
-        listaMascotas2.setAdapter(adaptador2); //le colocamos al recyclerview ese adaptador
 
-        //####################################################################
 
         /* COMENTAMOS ESTO PARA ESTA PRACTICA...
         //con tan solo getSupport().. me daba error, asiq primero habia que declarar la
@@ -117,4 +111,43 @@ public class Ultimas5Mascotas extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
+
+    public void inicializarAdaptador(){
+        //declaramos e instanciamos nuestro adaptador y le pasamos misMascotas:
+        //en el contexto no ponemos "this" sino getActivity(), ya que ahora estamos trabajando con fragments
+        MascotaAdaptador adaptador2 = new MascotaAdaptador(misMascotas2, this); //y ahora le pasamos tb el activity, para el tema del click
+        listaMascotas2.setAdapter(adaptador2); //le colocamos al recyclerview ese adaptador
+
+    }
+
+    public void cargarMascotasEnArrayList(){
+
+
+
+        //instanciamos (ya está declarado anteriormente más arriba) el ArrayList misMascotas:
+        misMascotas2 = new ArrayList<Mascota>();
+
+        ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this); //pasamos this y no getContext(), pq estamos en un activity y no en un fregment
+
+        //misMascotas2 = conn.obtenerTodasLasMascotas(ConstantesBaseDatos.TABLE_ULTIMAS_MASCOTAS);
+
+        misMascotas2 = conn.obtener5UltimasMascotas();
+
+
+/*
+        //VAMOS A INICIALIZAR ALGUNAS MASCOTAS "HARDCODEADAS":
+
+        misMascotas2 = new ArrayList<Mascota>();
+
+        misMascotas2.add(new Mascota(7,"crazy", R.drawable.dog7, 16));
+        misMascotas2.add(new Mascota(8,"pinky", R.drawable.dog8, 12));
+        misMascotas2.add(new Mascota(3,"Tommy", R.drawable.dog3, 8));
+        misMascotas2.add(new Mascota(4,"dozer", R.drawable.dog4, 7));
+        misMascotas2.add(new Mascota(5,"taco", R.drawable.dog5, 2));
+
+*/
+
+    }
+
+
 }

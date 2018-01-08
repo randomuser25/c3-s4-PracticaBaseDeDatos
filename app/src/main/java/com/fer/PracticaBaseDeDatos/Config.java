@@ -1,4 +1,4 @@
-package com.fer.PracticaViewpagerTabsyFragments;
+package com.fer.PracticaBaseDeDatos;
 
 //RECURSO UTILIZADO PARA ESTA PRÁCTICA:
 //https://www.simplifiedcoding.net/android-email-app-using-javamail-api-in-android-studio/

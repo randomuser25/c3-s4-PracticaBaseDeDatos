@@ -1,4 +1,4 @@
-package com.fer.PracticaViewpagerTabsyFragments.adapter;
+package com.fer.PracticaBaseDeDatos.adapter;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
@@ -10,16 +10,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.fer.PracticaViewpagerTabsyFragments.R;
-import com.fer.PracticaViewpagerTabsyFragments.pojo.Mascota;
-
 import java.util.ArrayList;
+
+import com.fer.PracticaBaseDeDatos.R;
+import com.fer.PracticaBaseDeDatos.pojo.Mascota;
+
 
 /**
  * Created by me on 21/12/17.
  */
 
-public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.MascotaViewHolder> {
+/******** VAOS A CREAR ESTE ADAPTADOR APARTE PARA LOS DATOS HARCODEADOS DEL PERFIL DE LA MASCOTA PRINCIPAL
+ * YA QUE EN ESTE CASO NO VAMOS A MANEJAR UNA LISTA EN BASE DE DATOS
+ */
+
+public class PerfilAdaptador extends RecyclerView.Adapter<PerfilAdaptador.MascotaViewHolder> {
 
 
     ArrayList<Mascota> mascotas;
@@ -30,10 +35,10 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
     //creamos un constructor que recibirá nuestra lista de mascotas como parámetro, para
     //que el resto de métodos que hay despues puedan utilizar dichos datos
 
-    public MascotaAdaptador(ArrayList<Mascota> mascotas, Activity activity){   //el constructor recibirá nuestra lista de mascotas
-                                                                               //y ahora tb el activity para manejar el onclick
+    public PerfilAdaptador(ArrayList<Mascota> mascotas, Activity activity){   //el constructor recibirá nuestra lista de mascotas
+        //y ahora tb el activity para manejar el onclick
         this.mascotas = mascotas;
-        this.activity = activity; //estamos diciendo que estamos en la clase MascotaAdaptador.java (creo), para el tema de eventos, intents..etc
+        this.activity = activity; //estamos diciendo que estamos en la clase PerfilAdaptador.java (creo), para el tema de eventos, intents..etc
 
 
 
@@ -58,7 +63,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         //ocultamos el id provisionalmente, para que no solape:
         mascotaViewHolder.tvIdCV.setText("");
 
-        mascotaViewHolder.tvNumeroLikesCV.setText(mascota.getNumeroLikes_mascota());
+        mascotaViewHolder.tvNumeroLikesCV.setText(Integer.toString(mascota.getNumeroLikes_mascota()));
 
 
         /* manejador de click en la imagen:
@@ -86,18 +91,18 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
 
                 //calculamos nuevos likes y actualizamos un item del dataset (PODRÍA SIMPLIFICARSE):
 
-                int likesactuales = Integer.parseInt(mascota.getNumeroLikes_mascota());
+                int likesactuales = mascota.getNumeroLikes_mascota();
                 int nuevoslikes = likesactuales + 1;
 
-                String likes = Integer.toString(nuevoslikes);
+                int likes = nuevoslikes;
 
                 mascota.setNumero_likes_mascota(likes);
 
 
-                int posicion = Integer.parseInt(mascota.getId_mascota()) - 1; //sacamos la posicion, que sera el id-1
+                int posicion = mascota.getId_mascota() - 1; //sacamos la posicion, que sera el id-1
 
                 //yourAdapter.notifyDataSetChanged();
-                MascotaAdaptador.this.notifyItemChanged(posicion);  //actualizamos el item:
+                PerfilAdaptador.this.notifyItemChanged(posicion);  //actualizamos el item:
                 //FUENTE: https://stackoverflow.com/questions/33176336/need-an-example-about-recyclerview-adapter-notifyitemchangedint-position-objec
 
                 //Mostramos un toast informando del nombre de la mascota que se dio like:
